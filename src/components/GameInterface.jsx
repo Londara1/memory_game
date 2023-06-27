@@ -1,4 +1,4 @@
-import Logo from "../assets/Logo.svg";
+import Logo from "../assets/logo.svg";
 import { useLocation } from "react-router-dom";
 
 const GameInterface = () => {
