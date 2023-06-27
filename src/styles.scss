@@ -1,96 +1,131 @@
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@700&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Atkinson Hyperlegible';
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Atkinson Hyperlegible";
 }
 
 .menuMainDiv {
-    width: 100vw;
-    min-height: 100vh;
-    background: #152938;
+  width: 100vw;
+  min-height: 100vh;
+  background: #152938;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .gameLogo {
+    color: #fcfcfc;
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .menuDiv {
+    margin-top: 45px;
+    padding: 24px;
+    background: #fcfcfc;
+    border-radius: 10px;
+  }
+
+  .options,
+  .playerOption,
+  .gridOption {
+    font-size: 15px;
+    line-height: 19px;
+    color: #7191a5;
+  }
+
+  .playerOption,
+  .gridOption {
+    margin-top: 24px;
+  }
+
+  .buttonsSection {
     display: flex;
-    justify-content: center;
+    gap: 11px;
+    margin-top: 11px;
+  }
+
+  .numberButton,
+  .iconButton {
+    background: #304859;
+    border-radius: 26px;
+    border: none;
+    color: #fcfcfc;
+    width: 134px;
+    height: 40px;
+  }
+
+  .playerNumberDiv {
+    display: flex;
+    gap: 10px;
+    margin-top: 11px;
+  }
+
+  .playerNumbersButton {
+    width: 62px;
+    height: 40px;
+    border: none;
+    border-radius: 26px;
+    background: #304859;
+    color: #fcfcfc;
+  }
+
+  .gridDiv {
+    display: flex;
+    gap: 11px;
+    margin-top: 11px;
+  }
+
+  .gridButton {
+    width: 134px;
+    height: 40px;
+    border: none;
+    border-radius: 26px;
+    background: #304859;
+    color: #fcfcfc;
+  }
+
+  .startButton {
+    background: #fda214;
+    border-radius: 26px;
+    border: none;
+    color: #fcfcfc;
+    width: 279px;
+    height: 48px;
+    margin-top: 32px;
+  }
+}
+
+.gameInterfaceMainDiv {
+  width: 100vw;
+  height: 100vh;
+  padding: 24px;
+  .header {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
 
-    .gameLogo {
-        color: #FCFCFC;
-        font-size: 32px;
-        line-height: 40px;
+    .logoSize {
+      width: 92px;
+      height: 30px;
     }
 
-    .menuDiv {
-        margin-top: 45px;
-        padding: 24px;
-        background: #FCFCFC;
-        border-radius: 10px;
+    .menuButton {
+      border: none;
+      color: #fcfcfc;
+      border-radius: 26px;
+      background: #fda214;
+      padding: 10px 19px;
     }
+  }
 
-    .options, .playerOption, .gridOption {
-        font-size: 15px;
-        line-height: 19px;
-        color: #7191A5;
-    }
-
-    .playerOption, .gridOption {
-        margin-top: 24px;
-    }
-
-    .buttonsSection {
-        display: flex;
-        gap: 11px;
-        margin-top: 11px;
-    }
-
-    .numberButton, .iconButton {
-        background: #304859;
-        border-radius: 26px;
-        border: none;
-        color: #FCFCFC;
-        width: 134px;
-        height: 40px;
-    }
-
-    .playerNumberDiv {
-        display: flex;
-        gap: 10px;
-        margin-top: 11px;
-    }
-
-    .playerNumbersButton {
-        width: 62px;
-        height: 40px;
-        border: none;
-        border-radius: 26px;
-        background: #304859;
-        color: #FCFCFC;
-    }
-
-    .gridDiv {
-        display: flex;
-        gap: 11px;
-        margin-top: 11px;
-    }
-
-    .gridButton {
-        width: 134px;
-        height: 40px;
-        border: none;
-        border-radius: 26px;
-        background: #304859;
-        color: #FCFCFC;
-    }
-
-    .startButton {
-        background: #FDA214;
-        border-radius: 26px;
-        border: none;
-        color: #FCFCFC;
-        width: 279px;
-        height: 48px;
-        margin-top: 32px;
-    }
+  .circle {
+    background: #304859;
+    width: 72px;
+    height: 72px;
+    border-radius: 100%;
+  }
 }
