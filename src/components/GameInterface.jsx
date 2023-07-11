@@ -15,6 +15,8 @@ const GameInterface = () => {
   const [time, setTime] = useState(0);
   const timerRef = useRef(null);
 
+  const [moves, setMoves] = useState(0);
+
   useEffect(() => {
     timerRef.current = setInterval(() => {
       setTime((prevTime) => prevTime + 1000);
@@ -66,6 +68,7 @@ const GameInterface = () => {
     }
 
     setSelectedCards([]);
+    setMoves((prevMoves) => prevMoves + 1);
   };
 
   const shuffleArray = (array) => {
@@ -136,7 +139,7 @@ const GameInterface = () => {
 
           <div className="movesDiv">
             <h1 className="MovesText">Moves</h1>
-            <h1 className="moves">39</h1>
+            <h1 className="moves">{moves}</h1>
           </div>
         </div>
       </div>
