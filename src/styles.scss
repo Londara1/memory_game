@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Atkinson Hyperlegible";
+  font-weight: 700;
 }
 
 .menuMainDiv {
@@ -147,12 +148,50 @@
       height: 72px;
       border-radius: 100%;
       font-size: 40px;
+      cursor: pointer;
     }
 
     .circle36 {
       width: 47px;
       height: 47px;
       font-size: 24px;
+    }
+
+    .selected {
+      background-color: #bcced9;
+    }
+
+    .matched {
+      background-color: #fda214;
+    }
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+
+    .timeDiv,
+    .movesDiv {
+      width: 151px;
+      border-radius: 5px;
+      background-color: #dfe7ec;
+    }
+
+    .timeText,
+    .MovesText {
+      text-align: center;
+      font-size: 15px;
+      color: #7191a5;
+      padding-top: 10px;
+    }
+
+    .timer,
+    .moves {
+      text-align: center;
+      font-size: 24px;
+      color: #304859;
+      padding: 2px 0px 9px 0px;
     }
   }
 }
