@@ -195,3 +195,84 @@
     }
   }
 }
+
+.gameOverDivMain {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .gameOverDiv {
+    width: 327px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #f2f2f2;
+    border-radius: 10px;
+    padding: 0px 24px 24px 24px;
+
+    .commend {
+      font-size: 24px;
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    .resultIntro {
+      color: #7191a5;
+      text-align: center;
+      margin: 9px 0px 24px 0px;
+      font-size: 14px;
+    }
+
+    .results {
+      color: #7191a5;
+      font-size: 13px;
+    }
+
+    .resultDetail {
+      color: #304859;
+      font-size: 20px;
+    }
+
+    .timeElapsed,
+    .movesTaken {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #dfe7ec;
+      border-radius: 5px;
+      padding: 11px 16px 12px 16px;
+    }
+
+    .movesTaken {
+      margin-top: 8px;
+    }
+
+    .gameOverFooter {
+      display: flex;
+      flex-direction: column;
+      margin-top: 24px;
+    }
+
+    .restartButton {
+      border: none;
+      background: #fda214;
+      border-radius: 26px;
+      color: #fcfcfc;
+      text-align: center;
+      padding: 12px 0px 12px 0px;
+    }
+
+    .setupButton {
+      border: none;
+      border-radius: 26px;
+      background: #dfe7ec;
+      margin-top: 16px;
+      padding: 12px 0px 12px 0px;
+    }
+  }
+}

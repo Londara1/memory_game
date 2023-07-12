@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import Logo from "../assets/logo.svg";
 import { useLocation } from "react-router-dom";
+import GameOver from "./GameOver";
 
 const GameInterface = () => {
   const location = useLocation();
@@ -16,6 +17,8 @@ const GameInterface = () => {
   const timerRef = useRef(null);
 
   const [moves, setMoves] = useState(0);
+
+  // const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     timerRef.current = setInterval(() => {
@@ -97,6 +100,12 @@ const GameInterface = () => {
     return matchedCards.includes(numbersForCircles[index]);
   };
 
+  const allValuesMatched = matchedCards.length === totalNumbers / 2;
+
+  if (allValuesMatched) {
+    clearInterval(timerRef.current);
+  }
+
   return (
     <>
       <div className="gameInterfaceMainDiv">
@@ -143,6 +152,9 @@ const GameInterface = () => {
           </div>
         </div>
       </div>
+      {allValuesMatched && (
+        <GameOver movesCounted={moves} timeCounted={formatTime(time)} />
+      )}
     </>
   );
 };
