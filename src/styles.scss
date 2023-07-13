@@ -130,7 +130,7 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 13px;
     width: 327px;
-    margin: 80px auto;
+    margin: 80px auto 102px;
 
     &.circlesDisplay36 {
       grid-template-columns: repeat(6, 1fr);
@@ -200,7 +200,7 @@
   width: 100vw;
   min-height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -258,7 +258,7 @@
       margin-top: 24px;
     }
 
-    .restartButton {
+    .restartButtonLink {
       border: none;
       background: #fda214;
       border-radius: 26px;
@@ -267,12 +267,24 @@
       padding: 12px 0px 12px 0px;
     }
 
-    .setupButton {
+    .restartButton {
+      border: none;
+      color: #fcfcfc;
+      background: #fda214;
+    }
+
+    .setupButtonLink {
       border: none;
       border-radius: 26px;
       background: #dfe7ec;
       margin-top: 16px;
       padding: 12px 0px 12px 0px;
+      text-align: center;
+    }
+
+    .setupButton {
+      border: none;
+      background: #dfe7ec;
     }
   }
 }

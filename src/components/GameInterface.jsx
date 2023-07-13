@@ -6,7 +6,7 @@ import GameOver from "./GameOver";
 const GameInterface = () => {
   const location = useLocation();
   const { gridSize } = location.state;
-  const fixedGridSize = gridSize.split("x").map((num) => parseInt(num));
+  const fixedGridSize = gridSize?.split("x").map((num) => parseInt(num));
   const totalNumbers = fixedGridSize[0] * fixedGridSize[1];
   const [numbersForCircles, setNumbersForCircles] = useState([]);
 
@@ -17,8 +17,6 @@ const GameInterface = () => {
   const timerRef = useRef(null);
 
   const [moves, setMoves] = useState(0);
-
-  // const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     timerRef.current = setInterval(() => {
@@ -106,6 +104,8 @@ const GameInterface = () => {
     clearInterval(timerRef.current);
   }
 
+  console.log(matchedCards);
+
   return (
     <>
       <div className="gameInterfaceMainDiv">
@@ -153,7 +153,14 @@ const GameInterface = () => {
         </div>
       </div>
       {allValuesMatched && (
-        <GameOver movesCounted={moves} timeCounted={formatTime(time)} />
+        <GameOver
+          gridSize={gridSize}
+          matchedCards={matchedCards}
+          numbersForCircles={numbersForCircles}
+          selectedCards={selectedCards}
+          movesCounted={moves}
+          timeCounted={formatTime(time)}
+        />
       )}
     </>
   );
