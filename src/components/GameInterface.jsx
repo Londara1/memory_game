@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Logo from "../assets/logo.svg";
 import { useLocation } from "react-router-dom";
 import GameOver from "./GameOver";
+import Menu from "./Menu";
 
 const GameInterface = () => {
   const location = useLocation();
@@ -104,15 +105,20 @@ const GameInterface = () => {
     clearInterval(timerRef.current);
   }
 
-  console.log(matchedCards);
+  const [showMenu, setShowMenu] = useState(false);
+  // console.log(showMenu);
 
   return (
     <>
       <div className="gameInterfaceMainDiv">
         <div className="header">
           <img src={Logo} className="logoSize" alt="Logo" />
-          <button className="menuButton">Menu</button>
+          <button onClick={() => setShowMenu(!showMenu)} className="menuButton">
+            Menu
+          </button>
         </div>
+
+        {showMenu && <Menu />}
 
         <div
           className={

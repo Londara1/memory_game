@@ -285,6 +285,46 @@
     .setupButton {
       border: none;
       background: #dfe7ec;
+      color: #304859;
     }
+  }
+}
+
+.GameMenuDivMain {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  .GameMenuDiv {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 327px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #f2f2f2;
+    padding: 24px 24px 24px 24px;
+    gap: 16px;
+  }
+
+  .restartButton,
+  .newGameButton,
+  .resumeButton {
+    padding: 13px 0px 13px 0px;
+    border-radius: 26px;
+    background: #dfe7ec;
+    border: none;
+    color: #304859;
+    font-size: 18px;
+  }
+
+  .restartButton {
+    background-color: #fda214;
+    color: #fcfcfc;
   }
 }
