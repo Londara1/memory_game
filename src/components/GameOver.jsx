@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const GameOver = ({ movesCounted, timeCounted, gridSize }) => {
   const restartFunction = () => {
     window.location.reload();
+    console.log(123);
   };
   return (
     <>
@@ -27,13 +28,9 @@ const GameOver = ({ movesCounted, timeCounted, gridSize }) => {
               className="restartButtonLink"
               state={{ gridSize }}
               to={"/game"}
+              onClick={() => restartFunction()}
             >
-              <button
-                onClick={() => restartFunction()}
-                className="restartButton"
-              >
-                Restart
-              </button>
+              <button className="restartButton">Restart</button>
             </Link>
             <Link className="setupButtonLink" to={"/"}>
               <button className="setupButton">Setup New Game</button>

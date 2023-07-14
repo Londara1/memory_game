@@ -106,7 +106,6 @@ const GameInterface = () => {
   }
 
   const [showMenu, setShowMenu] = useState(false);
-  // console.log(showMenu);
 
   return (
     <>
