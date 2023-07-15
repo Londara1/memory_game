@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
-const Menu = () => {
+const Menu = ({ setShowMenu, showMenu, setIsPaused }) => {
   const restartFunction = () => {
     window.location.reload();
-    console.log(121);
   };
+
   return (
     <>
       <div className="GameMenuDivMain">
@@ -12,8 +12,18 @@ const Menu = () => {
           <button onClick={() => restartFunction()} className="restartButton">
             Restart
           </button>
-          <button className="newGameButton">New Game</button>
-          <button className="resumeButton">Resume Game</button>
+          <Link className="newGameButtonLink" to={"/"}>
+            <button className="newGameButton">New Game</button>
+          </Link>
+          <button
+            onClick={() => {
+              setShowMenu(!showMenu);
+              setIsPaused(false);
+            }}
+            className="resumeButton"
+          >
+            Resume Game
+          </button>
         </div>
       </div>
     </>

@@ -15,19 +15,24 @@ const GameInterface = () => {
   const [matchedCards, setMatchedCards] = useState([]);
 
   const [time, setTime] = useState(0);
+
   const timerRef = useRef(null);
 
   const [moves, setMoves] = useState(0);
 
+  const [isPaused, setIsPaused] = useState(false);
+
   useEffect(() => {
     timerRef.current = setInterval(() => {
-      setTime((prevTime) => prevTime + 1000);
+      if (!isPaused) {
+        setTime((prevTime) => prevTime + 1000);
+      }
     }, 1000);
 
     return () => {
       clearInterval(timerRef.current);
     };
-  }, []);
+  }, [isPaused]);
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60000);
@@ -112,12 +117,24 @@ const GameInterface = () => {
       <div className="gameInterfaceMainDiv">
         <div className="header">
           <img src={Logo} className="logoSize" alt="Logo" />
-          <button onClick={() => setShowMenu(!showMenu)} className="menuButton">
+          <button
+            onClick={() => {
+              setShowMenu(!showMenu);
+              setIsPaused(true);
+            }}
+            className="menuButton"
+          >
             Menu
           </button>
         </div>
 
-        {showMenu && <Menu />}
+        {showMenu && (
+          <Menu
+            setShowMenu={setShowMenu}
+            showMenu={showMenu}
+            setIsPaused={setIsPaused}
+          />
+        )}
 
         <div
           className={

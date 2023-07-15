@@ -313,7 +313,7 @@
   }
 
   .restartButton,
-  .newGameButton,
+  .newGameButtonLink,
   .resumeButton {
     padding: 13px 0px 13px 0px;
     border-radius: 26px;
@@ -321,6 +321,14 @@
     border: none;
     color: #304859;
     font-size: 18px;
+    text-align: center;
+  }
+
+  .newGameButton {
+    border: none;
+    background: #dfe7ec;
+    font-size: 18px;
+    color: #304859;
   }
 
   .restartButton {
