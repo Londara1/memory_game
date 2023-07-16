@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const GameOver = ({ movesCounted, timeCounted, gridSize }) => {
   const restartFunction = () => {
     window.location.reload();
-    console.log(123);
   };
   return (
     <>

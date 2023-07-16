@@ -6,7 +6,7 @@ import Menu from "./Menu";
 
 const GameInterface = () => {
   const location = useLocation();
-  const { gridSize } = location.state;
+  const { playerNumber, gridSize } = location.state;
   const fixedGridSize = gridSize?.split("x").map((num) => parseInt(num));
   const totalNumbers = fixedGridSize[0] * fixedGridSize[1];
   const [numbersForCircles, setNumbersForCircles] = useState([]);
@@ -112,6 +112,8 @@ const GameInterface = () => {
 
   const [showMenu, setShowMenu] = useState(false);
 
+  // console.log(playerNumber);
+
   return (
     <>
       <div className="gameInterfaceMainDiv">
@@ -162,18 +164,31 @@ const GameInterface = () => {
           })}
         </div>
 
-        <div className="footer">
-          <div className="timeDiv">
-            <h1 className="timeText">Time</h1>
-            <h1 className="timer">{formatTime(time)}</h1>
-          </div>
+        {playerNumber == 1 && (
+          <div className="footer">
+            <div className="timeDiv">
+              <h1 className="timeText">Time</h1>
+              <h1 className="timer">{formatTime(time)}</h1>
+            </div>
 
-          <div className="movesDiv">
-            <h1 className="MovesText">Moves</h1>
-            <h1 className="moves">{moves}</h1>
+            <div className="movesDiv">
+              <h1 className="MovesText">Moves</h1>
+              <h1 className="moves">{moves}</h1>
+            </div>
           </div>
+        )}
+
+        <div className="playerTurnsMainDiv">
+          {playerNumber.length > 1 &&
+            playerNumber.map((number, index) => (
+              <div className="playerDivs" key={index}>
+                <h1 className="playerNumber">P{index + 1}</h1>
+                <h1 className="score">0</h1>
+              </div>
+            ))}
         </div>
       </div>
+
       {allValuesMatched && (
         <GameOver
           gridSize={gridSize}

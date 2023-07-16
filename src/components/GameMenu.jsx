@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const GameMenu = () => {
-  const [gridSize, setGridSize] = useState("");
+  const [playerNumber, setPlayerNumber] = useState([1]);
+  const [gridSize, setGridSize] = useState("4x4");
   return (
     <>
       <div className="menuMainDiv">
@@ -17,10 +18,30 @@ const GameMenu = () => {
 
           <p className="playerOption">Numbers of Players</p>
           <div className="playerNumberDiv">
-            <button className="playerNumbersButton">1</button>
-            <button className="playerNumbersButton">2</button>
-            <button className="playerNumbersButton">3</button>
-            <button className="playerNumbersButton">4</button>
+            <button
+              onClick={() => setPlayerNumber([1])}
+              className="playerNumbersButton"
+            >
+              1
+            </button>
+            <button
+              onClick={() => setPlayerNumber([1, 2])}
+              className="playerNumbersButton"
+            >
+              2
+            </button>
+            <button
+              onClick={() => setPlayerNumber([1, 2, 3])}
+              className="playerNumbersButton"
+            >
+              3
+            </button>
+            <button
+              onClick={() => setPlayerNumber([1, 2, 3, 4])}
+              className="playerNumbersButton"
+            >
+              4
+            </button>
           </div>
 
           <p className="gridOption">Grid Size</p>
@@ -33,7 +54,7 @@ const GameMenu = () => {
             </button>
           </div>
 
-          <Link state={{ gridSize }} to={"/game"}>
+          <Link state={{ gridSize, playerNumber }} to={"/game"}>
             <button className="startButton">Start Game</button>
           </Link>
         </div>
