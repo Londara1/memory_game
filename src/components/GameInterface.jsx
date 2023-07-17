@@ -15,12 +15,15 @@ const GameInterface = () => {
   const [matchedCards, setMatchedCards] = useState([]);
 
   const [time, setTime] = useState(0);
-
   const timerRef = useRef(null);
 
   const [moves, setMoves] = useState(0);
 
   const [isPaused, setIsPaused] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+
+  const [currentPlayer, setCurrentPlayer] = useState(1);
+  const [scores, setScores] = useState({});
 
   useEffect(() => {
     timerRef.current = setInterval(() => {
@@ -56,6 +59,14 @@ const GameInterface = () => {
   }, [totalNumbers]);
 
   useEffect(() => {
+    const initialScores = {};
+    playerNumber.forEach((player) => {
+      initialScores[player] = 0;
+    });
+    setScores(initialScores);
+  }, [playerNumber]);
+
+  useEffect(() => {
     if (selectedCards.length === 2) {
       const timer = setTimeout(() => {
         checkMatch();
@@ -72,10 +83,25 @@ const GameInterface = () => {
         ...prevMatchedCards,
         selectedCards[0].value,
       ]);
-    }
 
-    setSelectedCards([]);
-    setMoves((prevMoves) => prevMoves + 1);
+      setScores((prevScores) => ({
+        ...prevScores,
+        [currentPlayer]: prevScores[currentPlayer] + 1,
+      }));
+
+      setSelectedCards([]);
+      setMoves((prevMoves) => prevMoves + 1);
+    } else {
+      setSelectedCards([]);
+      setMoves((prevMoves) => prevMoves + 1);
+      setCurrentPlayer((prevPlayer) => getNextPlayer(prevPlayer));
+    }
+  };
+
+  const getNextPlayer = (currentPlayer) => {
+    const currentIndex = playerNumber.indexOf(currentPlayer);
+    const nextIndex = (currentIndex + 1) % playerNumber.length;
+    return playerNumber[nextIndex];
   };
 
   const shuffleArray = (array) => {
@@ -109,10 +135,6 @@ const GameInterface = () => {
   if (allValuesMatched) {
     clearInterval(timerRef.current);
   }
-
-  const [showMenu, setShowMenu] = useState(false);
-
-  // console.log(playerNumber);
 
   return (
     <>
@@ -182,8 +204,8 @@ const GameInterface = () => {
           {playerNumber.length > 1 &&
             playerNumber.map((number, index) => (
               <div className="playerDivs" key={index}>
-                <h1 className="playerNumber">P{index + 1}</h1>
-                <h1 className="score">0</h1>
+                <h1 className="playerNumber">P{number}</h1>
+                <h1 className="score">{scores[number]}</h1>
               </div>
             ))}
         </div>
