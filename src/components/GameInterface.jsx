@@ -203,9 +203,28 @@ const GameInterface = () => {
         <div className="playerTurnsMainDiv">
           {playerNumber.length > 1 &&
             playerNumber.map((number, index) => (
-              <div className="playerDivs" key={index}>
-                <h1 className="playerNumber">P{number}</h1>
-                <h1 className="score">{scores[number]}</h1>
+              <div
+                className={
+                  currentPlayer === number ? "activePlayerDiv" : "playerDivs "
+                }
+                key={index}
+              >
+                <h1
+                  className={
+                    currentPlayer === number
+                      ? "activePlayerNumber"
+                      : "playerNumber"
+                  }
+                >
+                  P{number}
+                </h1>
+                <h1
+                  className={
+                    currentPlayer === number ? "activePlayerScore" : "score"
+                  }
+                >
+                  {scores[number]}
+                </h1>
               </div>
             ))}
         </div>

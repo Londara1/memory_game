@@ -342,22 +342,34 @@
   justify-content: center;
   gap: 24px;
 
-  .playerDivs {
+  .playerDivs,
+  .activePlayerDiv {
     border-radius: 5px;
     background: #dfe7ec;
     padding: 10px 0;
     width: 100%;
   }
 
-  .playerNumber {
+  .playerNumber,
+  .activePlayerNumber {
     color: #7191a5;
     text-align: center;
     font-size: 15px;
   }
 
-  .score {
+  .score,
+  .activePlayerScore {
     color: #304859;
     text-align: center;
     font-size: 24px;
+  }
+
+  .activePlayerDiv {
+    background-color: #fda214;
+  }
+
+  .activePlayerNumber,
+  .activePlayerScore {
+    color: #fcfcfc;
   }
 }
