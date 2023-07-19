@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const GameMenu = () => {
+  const [theme, setTheme] = useState(1);
   const [playerNumber, setPlayerNumber] = useState([1]);
   const [gridSize, setGridSize] = useState("4x4");
   return (
@@ -12,8 +13,12 @@ const GameMenu = () => {
         <div className="menuDiv">
           <p className="options">Select Theme</p>
           <div className="buttonsSection">
-            <button className="numberButton">Numbers</button>
-            <button className="iconButton">Icons</button>
+            <button onClick={() => setTheme(1)} className="numberButton">
+              Numbers
+            </button>
+            <button onClick={() => setTheme(2)} className="iconButton">
+              Icons
+            </button>
           </div>
 
           <p className="playerOption">Numbers of Players</p>
@@ -54,7 +59,7 @@ const GameMenu = () => {
             </button>
           </div>
 
-          <Link state={{ gridSize, playerNumber }} to={"/game"}>
+          <Link state={{ theme, gridSize, playerNumber }} to={"/game"}>
             <button className="startButton">Start Game</button>
           </Link>
         </div>

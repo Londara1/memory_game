@@ -3,10 +3,32 @@ import Logo from "../assets/logo.svg";
 import { useLocation } from "react-router-dom";
 import GameOver from "./GameOver";
 import Menu from "./Menu";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faCoffee,
+  faHeart,
+  faStar,
+  faThumbsUp,
+  faCheckCircle,
+  faEnvelope,
+  faMusic,
+  faSun,
+  faMoon,
+  faCamera,
+  faTree,
+  faGamepad,
+  faPlane,
+  faRocket,
+  faSmile,
+  faCrown,
+  faCar,
+  faBicycle,
+} from "@fortawesome/free-solid-svg-icons";
 
 const GameInterface = () => {
   const location = useLocation();
-  const { playerNumber, gridSize } = location.state;
+  const { theme, playerNumber, gridSize } = location.state;
   const fixedGridSize = gridSize?.split("x").map((num) => parseInt(num));
   const totalNumbers = fixedGridSize[0] * fixedGridSize[1];
   const [numbersForCircles, setNumbersForCircles] = useState([]);
@@ -136,6 +158,50 @@ const GameInterface = () => {
     clearInterval(timerRef.current);
   }
 
+  console.log(theme);
+
+  library.add(
+    faCoffee,
+    faHeart,
+    faStar,
+    faThumbsUp,
+    faCheckCircle,
+    faEnvelope,
+    faMusic,
+    faSun,
+    faMoon,
+    faCamera,
+    faTree,
+    faGamepad,
+    faPlane,
+    faRocket,
+    faSmile,
+    faCrown,
+    faCar,
+    faBicycle
+  );
+
+  const iconMapping = {
+    1: faCoffee,
+    2: faHeart,
+    3: faStar,
+    4: faThumbsUp,
+    5: faCheckCircle,
+    6: faEnvelope,
+    7: faMusic,
+    8: faSun,
+    9: faMoon,
+    10: faCamera,
+    11: faTree,
+    12: faGamepad,
+    13: faPlane,
+    14: faRocket,
+    15: faSmile,
+    16: faCrown,
+    17: faCar,
+    18: faBicycle,
+  };
+
   return (
     <>
       <div className="gameInterfaceMainDiv">
@@ -174,13 +240,20 @@ const GameInterface = () => {
               isCardMatched(index) ? "matched" : ""
             }`;
 
+            let content =
+              theme === 2 ? (
+                <FontAwesomeIcon icon={iconMapping[circle]} />
+              ) : (
+                circle
+              );
+
             return (
               <div
                 key={index}
                 className={cardClass}
                 onClick={() => handleCardClick(index)}
               >
-                {isCardMatched(index) || isCardSelected(index) ? circle : ""}
+                {isCardMatched(index) || isCardSelected(index) ? content : ""}
               </div>
             );
           })}
