@@ -32,7 +32,6 @@ const GameInterface = () => {
   const fixedGridSize = gridSize?.split("x").map((num) => parseInt(num));
   const totalNumbers = fixedGridSize[0] * fixedGridSize[1];
   const [numbersForCircles, setNumbersForCircles] = useState([]);
-
   const [selectedCards, setSelectedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
 
@@ -134,6 +133,15 @@ const GameInterface = () => {
   };
 
   const handleCardClick = (index) => {
+    const isAlreadySelected = selectedCards.some(
+      (card) => card.index === index
+    );
+    const isAlreadyMatched = isCardMatched(index);
+
+    if (isAlreadySelected || isAlreadyMatched) {
+      return;
+    }
+
     if (selectedCards.length === 1) {
       setSelectedCards((prevSelectedCards) => [
         ...prevSelectedCards,
@@ -157,8 +165,6 @@ const GameInterface = () => {
   if (allValuesMatched) {
     clearInterval(timerRef.current);
   }
-
-  console.log(theme);
 
   library.add(
     faCoffee,
@@ -305,6 +311,8 @@ const GameInterface = () => {
 
       {allValuesMatched && (
         <GameOver
+          score={scores}
+          playerNumber={playerNumber}
           gridSize={gridSize}
           matchedCards={matchedCards}
           numbersForCircles={numbersForCircles}
