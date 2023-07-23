@@ -61,14 +61,12 @@ const GameOver = ({
         )}
 
         <div className="gameOverFooter">
-          <Link
+          <button
+            onClick={() => restartFunction()}
             className="restartButtonLink"
-            state={{ gridSize }}
-            to={"/game"}
-            onClick={restartFunction}
           >
-            <button className="restartButton">Restart</button>
-          </Link>
+            Restart
+          </button>
           <Link className="setupButtonLink" to={"/"}>
             <button className="setupButton">Setup New Game</button>
           </Link>

@@ -8,6 +8,12 @@
   font-weight: 700;
 }
 
+.gameLogo {
+  color: #fcfcfc;
+  font-size: 32px;
+  line-height: 40px;
+}
+
 .menuMainDiv {
   width: 100vw;
   min-height: 100vh;
@@ -16,12 +22,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
-  .gameLogo {
-    color: #fcfcfc;
-    font-size: 32px;
-    line-height: 40px;
-  }
 
   .menuDiv {
     margin-top: 45px;
@@ -57,6 +57,7 @@
     color: #fcfcfc;
     width: 134px;
     height: 40px;
+    cursor: pointer;
   }
 
   .playerNumberDiv {
@@ -72,6 +73,7 @@
     border-radius: 26px;
     background: #304859;
     color: #fcfcfc;
+    cursor: pointer;
   }
 
   .gridDiv {
@@ -87,6 +89,7 @@
     border-radius: 26px;
     background: #304859;
     color: #fcfcfc;
+    cursor: pointer;
   }
 
   .startButton {
@@ -97,6 +100,11 @@
     width: 279px;
     height: 48px;
     margin-top: 32px;
+    cursor: pointer;
+  }
+
+  .startButton:hover {
+    background: #ffb84a;
   }
 }
 
@@ -121,6 +129,10 @@
       background: #fda214;
       padding: 10px 19px;
     }
+  }
+
+  .headerButtons {
+    display: none;
   }
 
   .circlesDisplay16,
@@ -272,12 +284,7 @@
       color: #fcfcfc;
       text-align: center;
       padding: 12px 0px 12px 0px;
-    }
-
-    .restartButton {
-      border: none;
-      color: #fcfcfc;
-      background: #fda214;
+      cursor: pointer;
     }
 
     .setupButtonLink {
@@ -329,6 +336,7 @@
     color: #304859;
     font-size: 18px;
     text-align: center;
+    cursor: pointer;
   }
 
   .newGameButton {
@@ -341,6 +349,7 @@
   .restartButton {
     background-color: #fda214;
     color: #fcfcfc;
+    cursor: pointer;
   }
 }
 
@@ -358,7 +367,9 @@
   }
 
   .playerNumber,
-  .activePlayerNumber {
+  .activePlayerNumber,
+  .playerNumb,
+  .activePlayerNumb {
     color: #7191a5;
     text-align: center;
     font-size: 15px;
@@ -376,7 +387,285 @@
   }
 
   .activePlayerNumber,
-  .activePlayerScore {
+  .activePlayerScore,
+  .activePlayerNumb {
     color: #fcfcfc;
+  }
+
+  .activePlayerNumb,
+  .playerNumb {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .menuMainDiv {
+    .menuDiv {
+      margin-top: 78px;
+      padding: 56px;
+    }
+
+    .playerOption,
+    .gridOption {
+      margin-top: 32px;
+    }
+
+    .options,
+    .playerOption,
+    .gridOption {
+      font-size: 20px;
+    }
+
+    .buttonsSection {
+      margin-top: 16px;
+      gap: 30px;
+    }
+
+    .numberButton,
+    .iconButton,
+    .gridButton {
+      width: 256px;
+      height: 52px;
+      font-size: 26px;
+    }
+
+    .playerNumberDiv {
+      gap: 22px;
+    }
+
+    .playerNumbersButton {
+      width: 119px;
+      height: 52px;
+      margin-top: 16px;
+      font-size: 26px;
+    }
+
+    .gridDiv {
+      margin-top: 16px;
+      gap: 30px;
+    }
+
+    .startButton {
+      width: 541px;
+      height: 70px;
+      border-radius: 35px;
+      font-size: 32px;
+    }
+  }
+
+  .gameInterfaceMainDiv {
+    padding: 38px 40px 38px 40px;
+    .header {
+      .logoSize {
+        width: 153px;
+        height: 50px;
+      }
+    }
+
+    .menuButton {
+      display: none;
+    }
+
+    .headerButtons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .restartButton {
+      padding: 14px 29px;
+      border-radius: 26px;
+      background: #fda214;
+      border: none;
+      color: #fcfcfc;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .restartButton:hover {
+      background: #ffb84a;
+    }
+
+    .newGameButton {
+      padding: 14px 24px;
+      border: none;
+      border-radius: 26px;
+      background: #dfe7ec;
+      font-size: 20px;
+      color: #304859;
+      cursor: pointer;
+    }
+
+    .newGameButton:hover {
+      background: #6395b8;
+      color: #fcfcfc;
+    }
+
+    .circlesDisplay16 {
+      margin: 157px auto 126px;
+      width: 532px;
+      gap: 20px;
+      .circle16 {
+        width: 118px;
+        height: 118px;
+        font-size: 56px;
+      }
+
+      .circle16:hover {
+        background: #6395b8;
+      }
+    }
+
+    .circlesDisplay36 {
+      margin: 121px auto 122px;
+      width: 592px;
+
+      .circle36 {
+        width: 82px;
+        height: 82px;
+        font-size: 60px;
+      }
+
+      .circle36:hover {
+        background: #6395b8;
+      }
+
+      &.circlesDisplay36 {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 16px;
+      }
+    }
+
+    .footer {
+      gap: 30px;
+      .timeDiv,
+      .movesDiv {
+        display: flex;
+        justify-content: space-between;
+        width: 255px;
+        padding: 16px 22px 16px;
+        align-items: center;
+      }
+
+      .timeText,
+      .MovesText {
+        font-size: 18px;
+      }
+
+      .timer,
+      .moves {
+        font-size: 32px;
+        padding: 0;
+      }
+    }
+  }
+  .playerTurnsMainDiv {
+    .playerDivs,
+    .activePlayerDiv {
+      padding: 14px 0px 14px 15px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .playerNumber,
+    .activePlayerNumber {
+      display: none;
+    }
+
+    .activePlayerNumb,
+    .playerNumb {
+      display: flex;
+    }
+
+    .playerNumb,
+    .score,
+    .activePlayerNumb,
+    .activePlayerScore {
+      text-align: left;
+    }
+
+    .score,
+    .activePlayerScore {
+      margin-top: 5px;
+    }
+  }
+
+  .gameOverDivMain {
+    .gameOverDiv {
+      width: 654px;
+
+      .commend {
+        font-size: 48px;
+        margin-top: 51px;
+      }
+
+      .resultIntro {
+        font-size: 18px;
+        margin: 16px 0px 40px 0px;
+      }
+
+      .timeElapsed,
+      .movesTaken {
+        padding: 16px 32px 16px 32px;
+        border-radius: 10px;
+      }
+
+      .results {
+        font-size: 18px;
+      }
+
+      .resultDetail {
+        font-size: 32px;
+      }
+
+      .movesTaken {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  .gameOverDivMain {
+    .gameOverDiv {
+      padding: 0px 56px 69px;
+      .gameOverFooter {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 40px;
+      }
+
+      .restartButtonLink,
+      .setupButtonLink {
+        width: 264px;
+        height: 52px;
+        margin-top: 0;
+        font-size: 20px;
+      }
+
+      .setupButton {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .playerTurnsMainDiv {
+    .playerDivs,
+    .activePlayerDiv {
+      padding: 15px 22px;
+      height: 72px;
+      flex-direction: row;
+    }
+
+    .playerNumb,
+    .activePlayerNumb {
+      font-size: 18px;
+    }
+
+    .playerDivs,
+    .activePlayerDiv {
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 }

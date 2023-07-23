@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import Logo from "../assets/logo.svg";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import GameOver from "./GameOver";
 import Menu from "./Menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -166,6 +166,10 @@ const GameInterface = () => {
     clearInterval(timerRef.current);
   }
 
+  const restartFunction = () => {
+    window.location.reload();
+  };
+
   library.add(
     faCoffee,
     faHeart,
@@ -222,6 +226,15 @@ const GameInterface = () => {
           >
             Menu
           </button>
+
+          <div className="headerButtons">
+            <button onClick={() => restartFunction()} className="restartButton">
+              Restart
+            </button>
+            <Link to={"/"}>
+              <button className="newGameButton">New Game</button>
+            </Link>
+          </div>
         </div>
 
         {showMenu && (
@@ -296,6 +309,14 @@ const GameInterface = () => {
                   }
                 >
                   P{number}
+                </h1>
+
+                <h1
+                  className={
+                    currentPlayer === number ? "activePlayerNumb" : "playerNumb"
+                  }
+                >
+                  Player {number}
                 </h1>
                 <h1
                   className={
