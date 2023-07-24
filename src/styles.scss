@@ -51,13 +51,22 @@
 
   .numberButton,
   .iconButton {
-    background: #304859;
+    background: #bcced9;
     border-radius: 26px;
     border: none;
     color: #fcfcfc;
     width: 134px;
     height: 40px;
     cursor: pointer;
+  }
+
+  .numberButton:hover,
+  .iconButton:hover {
+    background: #6395b8;
+  }
+
+  .colorForMenu {
+    background: #304859;
   }
 
   .playerNumberDiv {
@@ -71,9 +80,13 @@
     height: 40px;
     border: none;
     border-radius: 26px;
-    background: #304859;
+    background: #bcced9;
     color: #fcfcfc;
     cursor: pointer;
+  }
+
+  .playerNumbersButton:hover {
+    background: #6395b8;
   }
 
   .gridDiv {
@@ -87,9 +100,13 @@
     height: 40px;
     border: none;
     border-radius: 26px;
-    background: #304859;
+    background: #bcced9;
     color: #fcfcfc;
     cursor: pointer;
+  }
+
+  .gridButton:hover {
+    background: #6395b8;
   }
 
   .startButton {
@@ -364,6 +381,7 @@
     background: #dfe7ec;
     padding: 10px 0;
     width: 100%;
+    gap: 121px;
   }
 
   .playerNumber,
@@ -398,8 +416,15 @@
   }
 }
 
+.colorForMenu {
+  background: #304859;
+}
+
 @media (min-width: 768px) {
   .menuMainDiv {
+    .colorForMenu {
+      background: #304859;
+    }
     .menuDiv {
       margin-top: 78px;
       padding: 56px;
@@ -649,6 +674,10 @@
 }
 
 @media (min-width: 1440px) {
+  .gameInterfaceMainDiv {
+    padding: 67px 165px 35px;
+  }
+
   .playerTurnsMainDiv {
     .playerDivs,
     .activePlayerDiv {
@@ -666,6 +695,14 @@
     .activePlayerDiv {
       align-items: center;
       justify-content: space-between;
+    }
+
+    .turnStyles {
+      letter-spacing: 5px;
+      color: #152938;
+      font-size: 13px;
+      margin-top: 23px;
+      text-align: center;
     }
   }
 }

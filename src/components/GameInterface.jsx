@@ -295,36 +295,43 @@ const GameInterface = () => {
         <div className="playerTurnsMainDiv">
           {playerNumber.length > 1 &&
             playerNumber.map((number, index) => (
-              <div
-                className={
-                  currentPlayer === number ? "activePlayerDiv" : "playerDivs "
-                }
-                key={index}
-              >
-                <h1
+              <div key={index}>
+                <div
                   className={
-                    currentPlayer === number
-                      ? "activePlayerNumber"
-                      : "playerNumber"
+                    currentPlayer === number ? "activePlayerDiv" : "playerDivs "
                   }
+                  key={index}
                 >
-                  P{number}
-                </h1>
+                  <h1
+                    className={
+                      currentPlayer === number
+                        ? "activePlayerNumber"
+                        : "playerNumber"
+                    }
+                  >
+                    P{number}
+                  </h1>
 
-                <h1
-                  className={
-                    currentPlayer === number ? "activePlayerNumb" : "playerNumb"
-                  }
-                >
-                  Player {number}
-                </h1>
-                <h1
-                  className={
-                    currentPlayer === number ? "activePlayerScore" : "score"
-                  }
-                >
-                  {scores[number]}
-                </h1>
+                  <h1
+                    className={
+                      currentPlayer === number
+                        ? "activePlayerNumb"
+                        : "playerNumb"
+                    }
+                  >
+                    Player {number}
+                  </h1>
+                  <h1
+                    className={
+                      currentPlayer === number ? "activePlayerScore" : "score"
+                    }
+                  >
+                    {scores[number]}
+                  </h1>
+                </div>
+                {currentPlayer === number && (
+                  <h1 className="turnStyles">CURRENT TURN</h1>
+                )}
               </div>
             ))}
         </div>
