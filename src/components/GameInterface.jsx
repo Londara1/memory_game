@@ -295,13 +295,16 @@ const GameInterface = () => {
         <div className="playerTurnsMainDiv">
           {playerNumber.length > 1 &&
             playerNumber.map((number, index) => (
-              <div key={index}>
+              <div key={index} className="scoreShower">
                 <div
                   className={
-                    currentPlayer === number ? "activePlayerDiv" : "playerDivs "
+                    currentPlayer === number
+                      ? "activePlayerDiv triangleDiv"
+                      : "playerDivs triangleDiv"
                   }
                   key={index}
                 >
+                  {currentPlayer === number && <div className="triangle"></div>}
                   <h1
                     className={
                       currentPlayer === number

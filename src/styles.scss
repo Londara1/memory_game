@@ -8,6 +8,10 @@
   font-weight: 700;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .gameLogo {
   color: #fcfcfc;
   font-size: 32px;
@@ -51,7 +55,6 @@
 
   .numberButton,
   .iconButton {
-    background: #bcced9;
     border-radius: 26px;
     border: none;
     color: #fcfcfc;
@@ -65,10 +68,6 @@
     background: #6395b8;
   }
 
-  .colorForMenu {
-    background: #304859;
-  }
-
   .playerNumberDiv {
     display: flex;
     gap: 10px;
@@ -80,7 +79,6 @@
     height: 40px;
     border: none;
     border-radius: 26px;
-    background: #bcced9;
     color: #fcfcfc;
     cursor: pointer;
   }
@@ -100,7 +98,6 @@
     height: 40px;
     border: none;
     border-radius: 26px;
-    background: #bcced9;
     color: #fcfcfc;
     cursor: pointer;
   }
@@ -127,7 +124,6 @@
 
 .gameInterfaceMainDiv {
   width: 100vw;
-  height: 100vh;
   padding: 24px;
   .header {
     display: flex;
@@ -380,8 +376,7 @@
     border-radius: 5px;
     background: #dfe7ec;
     padding: 10px 0;
-    width: 100%;
-    gap: 121px;
+    width: 64px;
   }
 
   .playerNumber,
@@ -420,11 +415,32 @@
   background: #304859;
 }
 
+.colorForMenu2 {
+  background: #bcced9;
+}
+
+.turnStyles {
+  display: none;
+}
+
+.triangleDiv {
+  position: relative;
+}
+
+.triangle {
+  position: absolute;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 25px solid #fda214;
+  top: -15px;
+  left: 50%;
+}
+
 @media (min-width: 768px) {
   .menuMainDiv {
-    .colorForMenu {
-      background: #304859;
-    }
     .menuDiv {
       margin-top: 78px;
       padding: 56px;
@@ -590,6 +606,7 @@
       border-radius: 10px;
       display: flex;
       flex-direction: column;
+      width: 164px;
     }
 
     .playerNumber,
@@ -691,13 +708,21 @@
       font-size: 18px;
     }
 
+    .scoreShower {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .playerDivs,
     .activePlayerDiv {
       align-items: center;
       justify-content: space-between;
+      width: 255px;
     }
 
     .turnStyles {
+      display: flex;
       letter-spacing: 5px;
       color: #152938;
       font-size: 13px;

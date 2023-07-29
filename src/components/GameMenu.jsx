@@ -19,14 +19,20 @@ const GameMenu = () => {
             <button
               onClick={() => setTheme(1)}
               className={
-                theme === 1 ? "numberButton colorForMenu" : "numberButton"
+                theme === 1
+                  ? "numberButton colorForMenu"
+                  : "numberButton colorForMenu2"
               }
             >
               Numbers
             </button>
             <button
               onClick={() => setTheme(2)}
-              className={theme === 2 ? "iconButton colorForMenu" : "iconButton"}
+              className={
+                theme === 2
+                  ? "iconButton colorForMenu"
+                  : "iconButton colorForMenu2"
+              }
             >
               Icons
             </button>
@@ -39,7 +45,7 @@ const GameMenu = () => {
               className={
                 playerNumber.length === 1
                   ? "playerNumbersButton colorForMenu"
-                  : "playerNumbersButton"
+                  : "playerNumbersButton colorForMenu2"
               }
             >
               1
@@ -49,7 +55,7 @@ const GameMenu = () => {
               className={
                 playerNumber.length === 2
                   ? "playerNumbersButton colorForMenu"
-                  : "playerNumbersButton"
+                  : "playerNumbersButton colorForMenu2"
               }
             >
               2
@@ -59,7 +65,7 @@ const GameMenu = () => {
               className={
                 playerNumber.length === 3
                   ? "playerNumbersButton colorForMenu"
-                  : "playerNumbersButton"
+                  : "playerNumbersButton colorForMenu2"
               }
             >
               3
@@ -69,7 +75,7 @@ const GameMenu = () => {
               className={
                 playerNumber.length === 4
                   ? "playerNumbersButton colorForMenu"
-                  : "playerNumbersButton"
+                  : "playerNumbersButton colorForMenu2"
               }
             >
               4
@@ -80,7 +86,9 @@ const GameMenu = () => {
           <div className="gridDiv">
             <button
               className={
-                gridSize === "4x4" ? "gridButton colorForMenu" : "gridButton"
+                gridSize === "4x4"
+                  ? "gridButton colorForMenu"
+                  : "gridButton colorForMenu2"
               }
               onClick={() => setGridSize("4x4")}
             >
@@ -88,7 +96,9 @@ const GameMenu = () => {
             </button>
             <button
               className={
-                gridSize === "6x6" ? "gridButton colorForMenu" : "gridButton"
+                gridSize === "6x6"
+                  ? "gridButton colorForMenu"
+                  : "gridButton colorForMenu2"
               }
               onClick={() => setGridSize("6x6")}
             >
